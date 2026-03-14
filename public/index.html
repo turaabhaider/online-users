@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Users</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 100px;
+      background: #f2f2f2;
+    }
+
+    h1 {
+      font-size: 40px;
+    }
+
+    #count {
+      font-size: 60px;
+      color: blue;
+    }
+  </style>
+
+</head>
+<body>
+
+<h1>People Online</h1>
+<div id="count">0</div>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+
+const socket = io()
+
+socket.on("usersOnline", (number) => {
+  document.getElementById("count").innerText = number
+})
+
+</script>
+
+</body>
+</html>
